@@ -20,7 +20,7 @@ Traveller.prototype.getJourneysByTransport = function (transport) {
   const result = this.journeys.filter((journey) => {
     return journey.transport === transport;
   });
-return result;
+  return result;
 };
 
 Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
@@ -38,8 +38,9 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-
+  const modesOfTransport = this.journeys.map((journey) => {
+    return journey.transport
+  });
+  return Array.from(new Set(modesOfTransport));
 };
-
-
 module.exports = Traveller;
